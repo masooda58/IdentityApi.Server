@@ -1,0 +1,51 @@
+﻿@page
+@using Jwt.Identity.BoursYarServer.Resources
+@model Jwt.Identity.BoursYarServer.Areas.Account.pages.SendConfirmationCodeModel
+@{
+    var showSendCofirmationCode = (bool)(TempData[TempDataDict.ShowSendCofirmationCode] ?? false);
+    var showEmailConfirmationMessage = (bool)(TempData[TempDataDict.ShowEmailConfirmationMessage] ?? false);
+    var showTotpConfirmationCode = (bool)(TempData[TempDataDict.ShowTotpConfirmationCode] ?? false);
+    if (showTotpConfirmationCode)
+    {
+        showSendCofirmationCode = false;
+    }
+}
+
+@if (showSendCofirmationCode)
+{
+    <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
+        <div asp-validation-summary="ModelOnly"></div>
+        <label asp-for="EmailOrPhone"></label>
+        <input asp-for="EmailOrPhone"/>
+        <span asp-validation-for="EmailOrPhone"></span>
+        @if (TempData[TempDataDict.Error_TotpCode] != null)
+        {
+            <div>@TempData[TempDataDict.Error_TotpCode].ToString()</div>
+        }
+        <button type="submit" asp-page-handler="ConfirmationEmailOrPhone">تایید</button>
+    </form>
+}
+@if (showEmailConfirmationMessage)
+{
+    <p>ایمیل تایید ارسال گردید</p>
+}
+@if (showTotpConfirmationCode)
+{
+    <form method="post">
+        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
+        <div asp-validation-summary="ModelOnly"></div>
+        <input Type="hidden" asp-for="EmailOrPhone"/>
+        <input type="text" asp-for="VerifySmsCode"/>
+        @if (TempData[TempDataDict.Error_TotpCode] != null)
+        {
+            <span dir="rtl" class="text-danger">@TempData[TempDataDict.Error_TotpCode].ToString()</span>
+        }
+        <button type="submit" class="btn btn-danger" asp-page-handler="ConfirmationSmsCode">تایید کد</button>
+    </form>
+}
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

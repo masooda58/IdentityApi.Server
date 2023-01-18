@@ -1,0 +1,14 @@
+﻿@page
+
+@{
+}
+@*<form asp-page="/Acount/SendConfirmationCode" method="Post">
+    <input asp-for="EmailOrPhone" />
+    <button type="submit" asp-page-handler="ConfirmationSmsCode"></button>
+</form>*@
+<p> public</p>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p> private data</p>
+}

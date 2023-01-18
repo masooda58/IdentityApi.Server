@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jwt.Identity.Test</name>
+    </assembly>
+    <members>
+        <member name="T:Jwt.Identity.Test.Helper.ApiHelper">
+            <summary>
+                API برای پروژه Helper
+            </summary>
+        </member>
+        <member name="T:Jwt.Identity.Test.Helper.DataServiceHelpers">
+            <summary>
+                می باشد JWT.Identity های پروژه Test برای ساخت Helper این کلاس یک
+            </summary>
+            <remarks>
+                <para> استفاده می شود Helper یک API,Domain,data برای هر سه پروژه</para>
+                <para>
+                    هر دو برای تست از این کلاس استفاده می کنند<see cref="T:Jwt.Identity.Data.Repositories.UserRepositories.RoleManagementService" /> و
+                    <see cref="T:Jwt.Identity.Data.Repositories.UserRepositories.RoleManagementService" />
+                </para>
+            </remarks>
+        </member>
+        <member name="T:Jwt.Identity.Test.Helper.UserDataForXuit">
+            <summary>
+                // Theory در بخش ClassData
+            </summary>
+        </member>
+        <member name="T:Jwt.Identity.Test.RoleManagerServiceTest">
+            <summary>
+                RoleManagerService in Jwt.identity.Data
+            </summary>
+        </member>
+        <member name="M:Jwt.Identity.Test.RoleManagerServiceTest.GetRoleByNameAsync_TwoRole_ReturnsMatchingRole(System.String,System.String)">
+            <summary>
+                GetRoleByNameAsync_OneRole_ReturnsMatchingRole
+            </summary>
+            <param name="rolename"></param>
+            <param name="expected"></param>
+        </member>
+        <member name="M:Jwt.Identity.Test.RoleManagerServiceTest.CreateRoleAsync_OneRole_ReturnsMatchingRole(System.String,System.Boolean)">
+            <summary>
+                دو تست یکی نام نقش وجود دارد دیگری ندارد و ساخته می شود
+            </summary>
+            <param name="rolename"></param>
+            <param name="expected"></param>
+        </member>
+        <member name="M:Jwt.Identity.Test.RoleManagerServiceTest.DeletRoleAsync_TwoRole_ReturnsMatchingRole(System.String,System.Boolean)">
+            <summary>
+                دو تست حذف نقش یکی وجود دارد دیگری ندارد
+            </summary>
+            <param name="rolename"></param>
+            <param name="expected"></param>
+        </member>
+    </members>
+</doc>

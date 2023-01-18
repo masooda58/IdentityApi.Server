@@ -1,0 +1,18 @@
+﻿@model Jwt.Identity.BoursYarServer.Models.ViewModel.TotpDto 
+
+@{
+    bool x;
+}
+<form id="form">
+    <div class="form-group">
+        <label >کد ارسالی</label>
+        <input name="code" class="form-control"/>
+
+    </div>
+    <input type="hidden" asp-for="TotpType"/>
+    <input type="hidden" asp-for="PhoneNumber"/>
+    <div class="form-group">
+        <button type="submit" asp-controller="TotpApi" asp-action="ConfirmTotp">تایید</button>
+    </div>
+
+</form>
